@@ -72,17 +72,20 @@ func main() {
 	item2 := produce{"item2", green, medium}
 	item3 := produce{"item3", yello, small}
 	proc := []produce{item1, item2, item3}
-	sspec := sizeSpec{size: medium}
+	sspec := sizeSpec{size: large}
 	colrsp := colorSpec{color: green}
 	bc := basicfilter{}
+	for _, val := range proc {
+		fmt.Println(val.String)
+	}
 	for _, val := range bc.filter(proc, &colrsp) {
-		fmt.Println(val)
+		fmt.Println(val.String())
 	}
 	for _, val := range bc.filter(proc, &sspec) {
-		fmt.Println(val)
+		fmt.Println(val.String())
 	}
 	ac := andspecification{&colrsp, &sspec}
 	for _, val := range bc.filter(proc, &ac) {
-		fmt.Println(val)
+		fmt.Println(val.String())
 	}
 }
