@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strings"
+	"time"
 )
 
 type Journal struct {
@@ -39,8 +40,10 @@ func (p *persistent) save(data string) {
 }
 func main() {
 	j := Journal{}
-	j.Add("aditya2q3")
-	j.Add("nupur")
-	p := persistent{"aditya.txt"}
+
+	//gets current date
+	currentDate := time.Now().String()
+	j.Add("pending belly kiss on date" + currentDate)
+	p := persistent{"nupur.txt"}
 	p.save(j.String())
 }
