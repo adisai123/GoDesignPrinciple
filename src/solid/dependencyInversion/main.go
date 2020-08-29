@@ -45,7 +45,7 @@ func (rtl *relationships) addParentChild(parents *person, ch *person) {
 }
 
 type reserch struct {
-	br relationbrowse // low-level
+	br relationbrowse // low-level communication through interface
 }
 
 func (r *reserch) Investigate(name string) {
